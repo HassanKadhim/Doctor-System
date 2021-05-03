@@ -57,13 +57,17 @@ class PatientController extends Controller
 
 
 		$patient = Patient::where('user_id', $request->user_id)
-		         			->update(['birthday' => $request->birthday,
+		        					->update([
+
+										'birthday' => $request->birthday,
 										'phone' => $request->phone,
 										'gender' => $request->gender,
 										'blood' => $request->blood,
 										'adress' => $request->adress,
 										'weight' => $request->weight,
-										'height' => $request->height]);
+										'height' => $request->height
+										
+										]);
 
 		
 		

@@ -26,7 +26,7 @@ class BillingController extends Controller
 
     public function store(Request $request){
 
-	    	 $validatedData = $request->validate([
+	    	$validatedData = $request->validate([
 	        	'patient_id' => ['required','exists:users,id'],
 	        	'payment_mode' => 'required',
 	        	'payment_status' => 'required',
@@ -86,7 +86,7 @@ class BillingController extends Controller
         $billing = Billing::findOrfail($id);
         $billing_items = Billing_item::where('billing_id' ,$id)->get();
         
-         view()->share(['billing' => $billing, 'billing_items' => $billing_items]);
+        view()->share(['billing' => $billing, 'billing_items' => $billing_items]);
       $pdf = PDF::loadView('billing.pdf_view', ['billing' => $billing, 'billing_items' => $billing_items]);
 
       // download PDF file with download method

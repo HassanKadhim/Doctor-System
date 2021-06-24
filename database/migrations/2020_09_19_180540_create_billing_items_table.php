@@ -16,8 +16,8 @@ class CreateBillingItemsTable extends Migration
         Schema::create('billing_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('billing_id')
-                  ->constrained()
-                  ->onDelete('cascade');
+                    ->constrained()
+                    ->onDelete('cascade');
 
             $table->string('invoice_title');
             $table->string('invoice_amount');
